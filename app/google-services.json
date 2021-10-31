@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "499399660450",
+    "project_id": "appvote-bdc78",
+    "storage_bucket": "appvote-bdc78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499399660450:android:980357135a72ef57ba18fb",
+        "android_client_info": {
+          "package_name": "sainero.dani.appvote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499399660450-3qtqf00b3rumoucprdrbel6nm8r0ddon.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuG5ngwur2od4kMhtkgg3SKMmhYgw1ISU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499399660450-3qtqf00b3rumoucprdrbel6nm8r0ddon.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
