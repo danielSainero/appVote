@@ -20,8 +20,8 @@ class login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
+
         auth = Firebase.auth
-        binding.signInBtn.setBackgroundColor(Color.BLACK)
 
         binding.signInBtn.setOnClickListener{
             //if (binding.signInEmail.text.toString().isNotEmpty() || binding.signInPassword.text.toString().isNotEmpty()){}
