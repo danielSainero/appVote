@@ -3,4 +3,13 @@
     <string name="loginEmail">correo@gmail.com</string>
     <string name="loginPassword">Contraseña</string>
     <string name="loginEnviar">Iniciar Sesión</string>
+    <string name="title_activity_privacy_policies">privacyPolicies</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="privacyPoliciesText1">
+        Su privacidad es importante para nosotros. Es política de sainerum respetar su privacidad y cumplir con cualquier ley y
+        regulación aplicable con respecto a cualquier información persona que podamos recopilar sobre usted.
+    </string>
+    <string name="privacyPoliciesText2">Esta política es efectiva a partir del 1 de noviembre de 2021 y se actualizó por última vez el 1 de noviembre de 2021</string>
+    <string name="large_text">Texto largo</string>
 </resources>

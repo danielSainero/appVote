@@ -18,10 +18,17 @@ class login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
 
         auth = Firebase.auth
+
+        binding.loginTextRegister.setOnClickListener{
+            //binding.signInBtn.setBackgroundColor(Color.BLUE)
+            this.startActivity(
+               Intent(this,register::class.java)
+           )
+        }
 
         binding.signInBtn.setOnClickListener{
             //if (binding.signInEmail.text.toString().isNotEmpty() || binding.signInPassword.text.toString().isNotEmpty()){}
