@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppVote">
         <activity
+            android:name=".privacyPolicies"
+            android:exported="false"
+            android:label="@string/title_activity_privacy_policies"
+            android:theme="@style/Theme.AppVote.NoActionBar" />
+        <activity
+            android:name=".register"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
