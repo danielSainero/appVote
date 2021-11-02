@@ -15,7 +15,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Politicas de privacidad"
+            android:text="@string/privacyPoliciesTitle"
             android:textColor="#3E3D3D"
             android:textSize="24sp" />
 
@@ -30,6 +30,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/privacyPoliciesText2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
