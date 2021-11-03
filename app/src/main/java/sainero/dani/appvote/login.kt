@@ -59,7 +59,6 @@ class login : AppCompatActivity() {
         val currentUser = auth.currentUser
         if(currentUser != null)
             reload();
-
     }
 
     private fun reload() {
