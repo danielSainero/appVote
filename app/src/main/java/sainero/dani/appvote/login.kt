@@ -18,9 +18,8 @@ class login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-
+        setContentView(binding.root)
         auth = Firebase.auth
 
         binding.loginTextRegister.setOnClickListener{
@@ -49,8 +48,7 @@ class login : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("AccesoFirebase", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -59,13 +57,12 @@ class login : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if(currentUser != null)
             reload();
-        }
+
     }
 
     private fun reload() {
-        this.startActivity(
-            Intent(this, MainActivity::class.java)
-        )}
+        this.startActivity(Intent(this, MainActivity::class.java))
+    }
 }

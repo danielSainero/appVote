@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
         android:orientation="vertical">
 
         <TextView
@@ -16,17 +17,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/privacyPoliciesTitle"
-            android:textColor="#3E3D3D"
-            android:textSize="24sp" />
+            android:theme="@style/blackTitle" />
 
         <TextView
             android:id="@+id/textView6"
+            style="@style/textPolicies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/privacyPoliciesText1" />
+            android:text="@string/privacyPoliciesText1"
+            android:theme="@style/textPolicies" />
 
         <TextView
             android:id="@+id/textView7"
+            style="@style/textPolicies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/privacyPoliciesText2" />
@@ -35,7 +38,247 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/logDataTitle"
+            android:textColor="#3E3D3D"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/logDataText1"
+            android:textColor="#1E1E1E" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logDataText2" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userInformationTitle"
+            android:textColor="#3E3D3D"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/userInformationText1" />
+
+        <TextView
+            android:id="@+id/textView10"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/userInformationText2" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userInformationText3" />
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userInformationText4" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/securityInformationTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/securityInformationText1" />
+
+        <TextView
+            android:id="@+id/textView15"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/securityInformationText2" />
+
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/securityInformationText3" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/keepInformationTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView18"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/keepInformationText1" />
+
+        <TextView
+            android:id="@+id/textView19"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/keepInformationText2" />
+
+        <TextView
+            android:id="@+id/textView20"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/internationalInformationTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView21"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/internationalInformationText" />
+
+        <TextView
+            android:id="@+id/textView22"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView23"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingText1" />
+
+        <TextView
+            android:id="@+id/textView24"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingText2" />
+
+        <TextView
+            android:id="@+id/textView25"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingText3" />
+
+        <TextView
+            android:id="@+id/textView26"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingText4" />
+
+        <TextView
+            android:id="@+id/textView27"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informationControllingText5" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cookiesTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView29"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cookiesText" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/limitsTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView31"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/limitsText" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/policityChangesTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView33"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/policityChangesText1" />
+
+        <TextView
+            android:id="@+id/textView34"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/policityChangesText2" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactUsTitle"
+            android:theme="@style/blackTitle" />
+
+        <TextView
+            android:id="@+id/textView36"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactUsText1" />
+
+        <TextView
+            android:id="@+id/textView37"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="@string/contactUsName" />
+
+        <TextView
+            android:id="@+id/textView38"
+            style="@style/textPolicies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactUsCorreo" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

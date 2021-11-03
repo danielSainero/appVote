@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".register">
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="117dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="76dp"
+        android:id="@+id/registerPolicies"
+        android:layout_width="113dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="48dp"
+        android:background="@color/plate"
         android:text="Politicas de privacidad"
         android:textAlignment="center"
         android:textColor="@color/azulEnlace"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="532dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/registerName"
-        android:layout_width="410dp"
+        android:layout_width="340dp"
         android:layout_height="39dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="44dp"
@@ -36,7 +39,7 @@
 
     <EditText
         android:id="@+id/registerRepeatPassword"
-        android:layout_width="410dp"
+        android:layout_width="340dp"
         android:layout_height="39dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
@@ -52,7 +55,7 @@
 
     <EditText
         android:id="@+id/registerPassword"
-        android:layout_width="410dp"
+        android:layout_width="340dp"
         android:layout_height="39dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
@@ -68,7 +71,7 @@
 
     <EditText
         android:id="@+id/registerMail"
-        android:layout_width="410dp"
+        android:layout_width="340dp"
         android:layout_height="39dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
@@ -83,7 +86,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_width="336dp"
         android:layout_height="51dp"
         android:layout_marginStart="32dp"
@@ -103,9 +106,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp"
         android:text="Acepto las Politicas de privacidad"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -119,7 +125,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerRepeatPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/registerRepeatPassword"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -128,6 +135,7 @@
         android:layout_marginStart="95dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="95dp"
+        android:background="@color/plate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
