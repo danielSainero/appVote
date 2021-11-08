@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <TextView
-        android:id="@+id/textView63"
+        android:id="@+id/loginNewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -151,36 +151,3 @@
         app:layout_constraintTop_toBottomOf="@+id/signInPassword"
         tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!--
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login">
-
-    <EditText
-        android:id="@+id/signInEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/loginEmail"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/signInPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/loginPassword"
-        android:inputType="textPassword"
-        android:minHeight="48dp" />
-
-    <Button
-        android:id="@+id/signInBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/loginEnviar" />
-</LinearLayout>
--->

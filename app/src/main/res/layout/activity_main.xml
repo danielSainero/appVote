@@ -4,15 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imgPerfil"
+        android:layout_width="95dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="236dp"
+        app:layout_constraintBottom_toBottomOf="@id/mainCrearVoto"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icono_imagen" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="576dp"
+        android:layout_height="852dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="156dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/sainorum" />
+
+    <Button
+        android:id="@+id/mainCrearVoto"
+        android:layout_width="315dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Crear votación"
+
+        app:layout_constraintBottom_toTopOf="@+id/mainUnirseVoto"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mainUnirseVoto"
+        android:layout_width="315dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="41dp"
+
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Unirse a una votación"
+        app:layout_constraintBottom_toTopOf="@+id/mainEncuestasAnteriores"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mainEncuestasAnteriores"
+        android:layout_width="315dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+
+        android:text="Ver encuestas anteriores"
+        app:layout_constraintBottom_toTopOf="@+id/mainSalir"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mainSalir"
+        android:layout_width="315dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Salir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
