@@ -1,5 +1,6 @@
 package sainero.dani.appvote
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,6 @@ class login : AppCompatActivity() {
         auth = Firebase.auth
 
         binding.loginTextRegister.setOnClickListener{
-            //binding.signInBtn.setBackgroundColor(Color.BLUE)
             this.startActivity(
                Intent(this,register::class.java)
            )
@@ -34,7 +34,13 @@ class login : AppCompatActivity() {
             signIn(
                 binding.signInEmail.text.toString(),
                 binding.signInPassword.text.toString()
-            )}
+            )
+        }
+        binding.loginNewPassword.setOnClickListener{
+            this.startActivity(
+                Intent(this,NewPassword::class.java)
+            )
+        }
     }
 
     private fun signIn(email: String, password: String) {
@@ -56,9 +62,34 @@ class login : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if(currentUser != null)
+        val user = auth.currentUser
+        if(user != null){
+            user?.let {
+                val name = user.displayName
+                val email = user.email
+                val photoUrl = user.photoUrl
+                val emailVerified = user.isEmailVerified
+                val uid = user.uid
+            }
+            /*
+            val emailAddress = "user@example.com"
+
+            auth.sendPasswordResetEmail(emailAddress)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d(TAG, "Email sent.")
+                        }
+                    }
+
+
+            user!!.sendEmailVerification()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Log.d(TAG, "Email sent.")
+                    }
+                }*/
             reload();
+        }
     }
 
     private fun reload() {
