@@ -21,16 +21,19 @@ class NewPoll : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPollBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = Firebase.auth
+        db = FirebaseFirestore.getInstance()
+
         var options = mutableListOf("Opciones:")
         var contentAdapter: ArrayAdapter<String>
-
-//  ArrayAdapter<String>(this, binding.optionList,options)
+        contentAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,options)
+        binding.optionList.adapter = contentAdapter
 
         binding.newPollAddOption.setOnClickListener{
             if (binding.newPollOption.text.isEmpty() || binding.newPollOption.text.toString().trim().equals("")) return@setOnClickListener
@@ -41,7 +44,34 @@ class NewPoll : AppCompatActivity() {
             binding.newPollOption.setText("")
 
         }
+
+        binding.btnNewPoll.setOnClickListener{
+            if (binding.Question.text.isEmpty() || binding.Question.text.toString().trim().equals("")) {
+                binding.Question.setError("El valor no puede estar vacio")
+                return@setOnClickListener
+            }
+
+            if(options.size < 2) {
+                binding.newPollOption.setError("Debes añadir alguna opción")
+                return@setOnClickListener
+            }
+            options.remove("Opciones:")
+            setInformationPoll(options)
+        }
     }
+    private fun setInformationPoll(opciones: MutableList<String>) {
+        db.collection("poll").document(randomID())
+            .set(
+                hashMapOf(
+                    "Question" to binding.Question.text.toString(),
+                    "Opciones" to opciones
+                    )
+            )
+    }
+
+    private fun randomID(): String = List(16) {
+        (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
+    }.joinToString("")
 
 
 }

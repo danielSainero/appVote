@@ -101,9 +101,6 @@ class register : AppCompatActivity() {
     }
 
     private fun setInformationUser() {
-
-
-
         db.collection("users").document(auth.currentUser?.uid.toString())
             .set(
                 hashMapOf(
@@ -142,9 +139,6 @@ class register : AppCompatActivity() {
         }
 
     }
-    private fun randomID(): String = List(16) {
-        (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
-    }.joinToString("")
 
     private fun createUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)

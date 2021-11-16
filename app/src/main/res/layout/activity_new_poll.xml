@@ -37,20 +37,31 @@
         android:id="@+id/newPollAddOption"
         android:layout_width="342dp"
         android:layout_height="59dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Añadir opción a la votación"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newPollOption" />
+        app:layout_constraintTop_toBottomOf="@+id/optionList" />
 
     <ListView
         android:id="@+id/optionList"
         android:layout_width="250dp"
         android:layout_height="217dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="23dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newPollAddOption" />
+        app:layout_constraintTop_toBottomOf="@+id/newPollOption" />
+
+    <Button
+        android:id="@+id/btnNewPoll"
+        android:layout_width="342dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Crear votación"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
