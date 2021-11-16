@@ -3,6 +3,8 @@
     package="sainero.dani.appvote">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,16 +15,16 @@
         android:theme="@style/Theme.AppVote">
         <activity
             android:name=".NewPoll"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Perfil"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".NewPassword"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".privacyPolicies"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_privacy_policies"
             android:theme="@style/Theme.AppVote.NoActionBar" />
         <activity
