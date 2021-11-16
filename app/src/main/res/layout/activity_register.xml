@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/registerImg"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
@@ -141,7 +141,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/registerImg"
         android:layout_width="0dp"
         android:layout_height="148dp"
         android:layout_marginStart="95dp"
