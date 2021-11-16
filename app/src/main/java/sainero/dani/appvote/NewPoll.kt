@@ -39,6 +39,7 @@ class NewPoll : AppCompatActivity() {
             contentAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,options)
             binding.optionList.adapter = contentAdapter
             binding.newPollOption.setText("")
+
         }
     }
 
