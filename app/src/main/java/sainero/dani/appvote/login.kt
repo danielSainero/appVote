@@ -71,23 +71,7 @@ class login : AppCompatActivity() {
                 val emailVerified = user.isEmailVerified
                 val uid = user.uid
             }
-            /*
-            val emailAddress = "user@example.com"
 
-            auth.sendPasswordResetEmail(emailAddress)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Log.d(TAG, "Email sent.")
-                        }
-                    }
-
-
-            user!!.sendEmailVerification()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "Email sent.")
-                    }
-                }*/
             reload();
         }
     }

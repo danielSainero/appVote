@@ -1,18 +1,20 @@
 package sainero.dani.appvote
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import sainero.dani.appvote.databinding.ActivityMainBinding
 import sainero.dani.appvote.databinding.ActivityNewPollBinding
-import kotlin.math.log
+
+data class RowPoll(val optionRow: String)
 
 class NewPoll : AppCompatActivity() {
 
@@ -20,7 +22,9 @@ class NewPoll : AppCompatActivity() {
     private lateinit var  binding: ActivityNewPollBinding
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
-
+    private  lateinit var  options : MutableList<String>
+    private  lateinit var id: String
+    private lateinit var respuestas: MutableList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +34,14 @@ class NewPoll : AppCompatActivity() {
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance()
 
-        var options = mutableListOf("Opciones:")
+       respuestas = mutableListOf()
+
+
+
+
+
+
+        options = mutableListOf("Opciones:")
         var contentAdapter: ArrayAdapter<String>
         contentAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,options)
         binding.optionList.adapter = contentAdapter
@@ -56,17 +67,35 @@ class NewPoll : AppCompatActivity() {
                 return@setOnClickListener
             }
             options.remove("Opciones:")
+            for (i in options) respuestas.add(0)
+
             setInformationPoll(options)
+            var intent: Intent = Intent(this,Poll::class.java)
+            intent.putExtra("pollId", id)
+            this.startActivity(intent)
+
+            //Toast.makeText(this,crearDataClass(options).toString(), Toast.LENGTH_LONG).show()
         }
     }
+    fun crearDataClass(opciones: MutableList<String>) : MutableList<RowPoll> {
+
+        val oP: MutableList<RowPoll> = mutableListOf<RowPoll>()
+        for (i in opciones)
+            oP.add(RowPoll(i))
+        return oP
+    }
     private fun setInformationPoll(opciones: MutableList<String>) {
-        db.collection("poll").document(randomID())
-            .set(
-                hashMapOf(
-                    "Question" to binding.Question.text.toString(),
-                    "Opciones" to opciones
-                    )
-            )
+        val documento = db.collection("poll").document()
+        id = documento.id
+
+        documento.set(
+            hashMapOf(
+                "Question" to binding.Question.text.toString(),
+                "Opciones" to opciones,
+                "Respuestas" to respuestas
+                )
+        )
+
     }
 
     private fun randomID(): String = List(16) {
@@ -74,4 +103,7 @@ class NewPoll : AppCompatActivity() {
     }.joinToString("")
 
 
+    override fun onStart() {
+        super.onStart()
+     }
 }

@@ -51,9 +51,6 @@ class register : AppCompatActivity() {
         img = storage.getReferenceFromUrl("gs://appvote-bdc78.appspot.com/imgUser/sainorum.png")
 
 
-       // asignarImg(img, binding.registerImg)
-
-
 
 
 
