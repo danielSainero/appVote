@@ -8,27 +8,19 @@
     android:orientation="vertical"
     tools:context=".login">
 
-    <ImageView
-        android:id="@+id/loginClose"
-        android:layout_width="31dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
-        android:background="@color/plate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
-
     <TextView
         android:id="@+id/textView59"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="51dp"
+        android:layout_marginEnd="254dp"
         android:text="Iniciar sesión"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView60"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,13 +30,16 @@
         android:layout_height="49dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
         android:text="Necesita iniciar sesión en nuestra app para poder crear una votación"
         android:textColor="#0E0E0E"
+        app:layout_constraintBottom_toTopOf="@+id/signInGoogle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView59" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/signInGoogle"
         android:layout_width="355dp"
         android:layout_height="66dp"
 
@@ -55,6 +50,7 @@
         android:drawableLeft="@drawable/google"
         android:text="Google"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/textView61"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView60" />
@@ -69,9 +65,10 @@
         android:text="Introduce su correo y contraseña para iniciar sesión"
         android:textColor="#0E0E0E"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/signInEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/signInGoogle" />
 
     <TextView
         android:id="@+id/loginNewPassword"
@@ -82,29 +79,37 @@
         android:text="He olvidado la contraseña"
         android:textColor="@color/azulEnlace"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textView64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
     <TextView
         android:id="@+id/textView64"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="152dp"
         android:layout_marginBottom="24dp"
         android:text="No tienes cuenta?"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/loginTextRegister" />
+        app:layout_constraintEnd_toStartOf="@+id/loginTextRegister"
+        app:layout_constraintStart_toEndOf="@+id/loginNewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
     <TextView
         android:id="@+id/loginTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:text="Register"
         android:textColor="@color/azulEnlace"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView64"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
     <EditText
         android:id="@+id/signInEmail"
@@ -116,6 +121,7 @@
         android:ems="10"
         android:hint="@string/loginEmail"
         android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/signInPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView61"
@@ -132,6 +138,7 @@
         android:hint="@string/loginPassword"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/signInBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInEmail"
@@ -142,9 +149,11 @@
         android:layout_width="383dp"
         android:layout_height="43dp"
         android:layout_marginTop="35dp"
+        android:layout_marginBottom="152dp"
         android:background="@drawable/gradien_blue"
         android:text="@string/loginEnviar"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/loginNewPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"

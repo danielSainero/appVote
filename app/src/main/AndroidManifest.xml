@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppVote">
         <activity
+            android:name=".joinAPoll"
+            android:exported="false" />
+        <activity
             android:name=".PollResult"
             android:exported="false" />
         <activity
@@ -21,13 +24,16 @@
             android:exported="false" />
         <activity
             android:name=".NewPoll"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Perfil"
             android:exported="true" />
         <activity
             android:name=".NewPassword"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            />
         <activity
             android:name=".privacyPolicies"
             android:exported="true"
@@ -42,7 +48,8 @@
             android:exported="true" />
         <activity
             android:name=".login"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

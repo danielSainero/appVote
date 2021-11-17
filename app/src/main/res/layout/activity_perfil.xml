@@ -8,7 +8,7 @@
     tools:context=".Perfil">
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/cbOfertas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -63,7 +63,7 @@
         android:ems="10"
         android:hint="@string/loginEmail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox3"
+        app:layout_constraintBottom_toTopOf="@+id/cbOfertas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,20 +72,19 @@
 
     <Button
         android:id="@+id/btnPerfilModificarContra"
-        android:layout_width="344dp"
-        android:layout_height="62dp"
+        android:layout_width="349dp"
+        android:layout_height="64dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/gradien_blue"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Modificar contraseña"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btnPerfilActualizarDatos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+        app:layout_constraintTop_toBottomOf="@+id/cbOfertas" />
 
     <Button
         android:id="@+id/btnPerfilActualizarDatos"
@@ -94,9 +93,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="81dp"
-        android:background="@drawable/gradient_orange"
-        android:text="Guardar datos"
-        android:textColor="@color/white"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Guardar cambios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

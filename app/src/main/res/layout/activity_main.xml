@@ -20,14 +20,16 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="576dp"
-        android:layout_height="852dp"
+        android:layout_width="179dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="156dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="59dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainCrearVoto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sainorum" />
 
     <Button
@@ -51,18 +53,18 @@
 
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Unirse a una votación"
-        app:layout_constraintBottom_toTopOf="@+id/mainEncuestasAnteriores"
+        app:layout_constraintBottom_toTopOf="@+id/mainResultadoEncuesta"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/mainEncuestasAnteriores"
+        android:id="@+id/mainResultadoEncuesta"
         android:layout_width="315dp"
         android:layout_height="68dp"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="34dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
 
-        android:text="Ver encuestas anteriores"
+        android:text="Ver resultado de la encuesta"
         app:layout_constraintBottom_toTopOf="@+id/mainSalir"
         app:layout_constraintStart_toStartOf="parent" />
 

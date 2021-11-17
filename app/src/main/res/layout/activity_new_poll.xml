@@ -13,9 +13,12 @@
         android:layout_height="39dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="41dp"
+        android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="Introduzca su opción"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/optionList"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Question"
         tools:ignore="TouchTargetSizeCheck" />
@@ -23,12 +26,15 @@
     <EditText
         android:id="@+id/Question"
         android:layout_width="341dp"
-        android:layout_height="39dp"
+        android:layout_height="0dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="70dp"
+        android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="Escriba su pregunta"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/newPollOption"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
@@ -39,8 +45,11 @@
         android:layout_height="59dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="52dp"
+        android:layout_marginEnd="37dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Añadir opción a la votación"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewPoll"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionList" />
 
@@ -50,6 +59,9 @@
         android:layout_height="217dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="23dp"
+        android:layout_marginEnd="81dp"
+        app:layout_constraintBottom_toTopOf="@+id/newPollAddOption"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPollOption" />
 
@@ -58,10 +70,14 @@
         android:layout_width="342dp"
         android:layout_height="59dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="37dp"
         android:layout_marginBottom="111dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Crear votación"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPollAddOption" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
