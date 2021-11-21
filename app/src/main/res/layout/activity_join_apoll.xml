@@ -9,30 +9,33 @@
 
     <EditText
         android:id="@+id/joinId"
-        android:layout_width="341dp"
-        android:layout_height="39dp"
+        android:layout_width="371dp"
+        android:layout_height="38dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="93dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="131dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Introduce la id de la votación"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnJoinAPoll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/btnJoinAPoll"
-        android:layout_width="260dp"
+        android:layout_width="285dp"
         android:layout_height="70dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginBottom="145dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Unirse a la votación"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/btnJoinRandomPoll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joinId" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,8 +44,24 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="89dp"
+        app:layout_constraintBottom_toTopOf="@+id/joinId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sainorum" />
+
+    <Button
+        android:id="@+id/btnJoinRandomPoll"
+        android:layout_width="285dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:text="Unirse a una votación aleatoria"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoinAPoll" />
 </androidx.constraintlayout.widget.ConstraintLayout>

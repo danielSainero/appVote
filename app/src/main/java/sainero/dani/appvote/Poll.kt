@@ -36,7 +36,7 @@ class Poll : AppCompatActivity() {
         var respuestas : MutableList<Int> = mutableListOf()
 
         var id = intent.getStringExtra("pollId").toString()
-
+        binding.textPollId.text = "#${id}"
         db.collection("poll").document(id)
             .get().addOnSuccessListener{
                 opciones = it.get("Opciones") as MutableList<String>

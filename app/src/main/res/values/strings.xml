@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appVote</string>
+    <string name="app_name">appVote-Sainorum</string>
     <string name="loginEmail">correo@gmail.com</string>
     <string name="loginPassword">Contraseña</string>
     <string name="loginEnviar">Iniciar Sesión</string>

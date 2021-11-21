@@ -38,8 +38,10 @@ class MainActivity : AppCompatActivity() {
             this.startActivity(Intent(this,NewPoll::class.java))
         }
         binding.mainSalir.setOnClickListener{
+            val intent = Intent(applicationContext, login::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             auth.signOut()
-            this.startActivity(Intent(this,login::class.java))
+            startActivity(intent)
         }
 
         binding.mainUnirseVoto.setOnClickListener{

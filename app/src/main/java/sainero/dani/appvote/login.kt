@@ -34,7 +34,15 @@ class login : AppCompatActivity() {
         }
 
         binding.signInBtn.setOnClickListener{
-            //if (binding.signInEmail.text.toString().isNotEmpty() || binding.signInPassword.text.toString().isNotEmpty()){}
+            if (binding.signInEmail.text.isEmpty() || binding.signInEmail.text.toString().trim().equals("")){
+                binding.signInEmail.setError("El email no puede estar vacio")
+                return@setOnClickListener
+            }
+
+            if (binding.signInPassword.text.isEmpty() || binding.signInPassword.text.toString().trim().equals("")) {
+                binding.signInPassword.setError("La contraseña no puede estar vacia")
+                return@setOnClickListener
+            }
             signIn(
                 binding.signInEmail.text.toString(),
                 binding.signInPassword.text.toString()
@@ -106,13 +114,13 @@ class login : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("AccesoFirebase", "signInWithEmail:success")
+                    Log.d("Inicio de sesión", "Se ha iniciado la sesión")
                     val user = auth.currentUser
                     reload()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("AccesoFirebase", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Log.w("Inicio de sesión", "No se ha podido iniciar la sesión", task.exception)
+                    Toast.makeText(baseContext, "El usuario o contraseña no son válidos.", Toast.LENGTH_LONG).show()
                 }
             }
     }
@@ -122,13 +130,13 @@ class login : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val user = auth.currentUser
         if(user != null){
-            user?.let {
+           /* user?.let {
                 val name = user.displayName
                 val email = user.email
                 val photoUrl = user.photoUrl
                 val emailVerified = user.isEmailVerified
                 val uid = user.uid
-            }
+            }*/
 
             reload();
         }

@@ -1,10 +1,12 @@
 package sainero.dani.appvote
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class AdaptadorPoll(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.Adapter<AdaptadorPoll.ViewHolder>() {
@@ -26,6 +28,16 @@ class AdaptadorPoll(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.
         holder.option.setOnCheckedChangeListener{ i, b ->
             p.isChecked = holder.option.isChecked
         }
+
+       /* holder.option.setOnHoverListener({ view, motionEvent ->
+
+            view.setBackgroundColor(Color.DKGRAY)
+            true
+        })*/
+
+
+
+
     }
 
     override fun getItemCount(): Int {

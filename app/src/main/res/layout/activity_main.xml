@@ -11,11 +11,15 @@
         android:id="@+id/imgPerfil"
         android:layout_width="95dp"
         android:layout_height="65dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="16dp"
+
         android:layout_marginBottom="236dp"
         app:layout_constraintBottom_toBottomOf="@id/mainCrearVoto"
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icono_imagen" />
 
     <ImageView
@@ -37,36 +41,45 @@
         android:layout_width="315dp"
         android:layout_height="68dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
+
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Crear votación"
-
         app:layout_constraintBottom_toTopOf="@+id/mainUnirseVoto"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <Button
         android:id="@+id/mainUnirseVoto"
         android:layout_width="315dp"
         android:layout_height="68dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="41dp"
 
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Unirse a una votación"
         app:layout_constraintBottom_toTopOf="@+id/mainResultadoEncuesta"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainCrearVoto" />
 
     <Button
         android:id="@+id/mainResultadoEncuesta"
         android:layout_width="315dp"
         android:layout_height="68dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="34dp"
-        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:layout_marginEnd="48dp"
 
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:text="Ver resultado de la encuesta"
         app:layout_constraintBottom_toTopOf="@+id/mainSalir"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainUnirseVoto" />
 
     <Button
         android:id="@+id/mainSalir"
@@ -79,6 +92,7 @@
         android:text="Salir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainResultadoEncuesta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
