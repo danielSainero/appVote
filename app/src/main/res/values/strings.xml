@@ -56,4 +56,9 @@
     <string name="contactUsText1">Para cualquier pregunta o inquietud con respecto a su privacidad, puede comunicarse con nosotros utilizando los siguientes detalles:</string>
     <string name="contactUsName">Daniel</string>
     <string name="contactUsCorreo">sainero2002dani.j@gmail.com</string>
+    <string-array name="textPollType">
+        <item>Multi elección</item>
+        <item>Elección única</item>
+        <item>Resultado aleatorio</item>
+    </string-array>
 </resources>

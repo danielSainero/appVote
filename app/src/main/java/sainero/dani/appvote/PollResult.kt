@@ -34,7 +34,8 @@ class PollResult : AppCompatActivity() {
         var pregunta: String
         var respuestas: MutableList<Int> = mutableListOf()
         var id = intent.getStringExtra("pollId").toString()
-        Toast.makeText(baseContext, id, Toast.LENGTH_SHORT).show()
+
+        binding.textResultPollId.text = id
 
         db.collection("poll").document(id)
             .get().addOnSuccessListener{

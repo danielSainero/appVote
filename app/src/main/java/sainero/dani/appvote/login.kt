@@ -6,6 +6,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -32,6 +34,15 @@ class login : AppCompatActivity() {
         binding.loginTextRegister.setOnClickListener{
             this.startActivity(Intent(this,register::class.java))
         }
+
+        binding.signInPassword.setOnKeyListener(View.OnKeyListener {
+            v, keyCode, event -> if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                signIn(binding.signInEmail.text.toString(),binding.signInPassword.text.toString())
+                return@OnKeyListener true
+            } else {
+                return@OnKeyListener false
+            }
+        })
 
         binding.signInBtn.setOnClickListener{
             if (binding.signInEmail.text.isEmpty() || binding.signInEmail.text.toString().trim().equals("")){

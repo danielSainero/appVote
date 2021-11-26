@@ -1,26 +1,28 @@
 package sainero.dani.appvote
 
-import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.Toast
+import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 
-class AdaptadorPoll(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.Adapter<AdaptadorPoll.ViewHolder>() {
+class AdapterPollSingleChoice(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.Adapter<AdapterPollSingleChoice.ViewHolder>() {
 
     class ViewHolder(v: View): RecyclerView.ViewHolder(v) {
-        val option: CheckBox
+        val option: RadioButton
         init {
-            option = v.findViewById(R.id.cbOptionPoll)
+            option = v.findViewById(R.id.rbOptionPoll)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdaptadorPoll.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_poll,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPollSingleChoice.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_poll_single_choice,parent,false)
         return ViewHolder(v)
+    }
+
+    override fun getItemCount(): Int {
+        return rowOptionsPoll.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -29,10 +31,6 @@ class AdaptadorPoll(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.
         holder.option.setOnCheckedChangeListener{ i, b ->
             p.isChecked = holder.option.isChecked
         }
-    }
-
-    override fun getItemCount(): Int {
-        return rowOptionsPoll.size
     }
 
 }

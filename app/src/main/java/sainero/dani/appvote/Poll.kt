@@ -22,6 +22,7 @@ class Poll : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
     private var pollOptions: MutableList<PollOption> = mutableListOf()
+    private lateinit var pollType: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +35,18 @@ class Poll : AppCompatActivity() {
         var opciones: MutableList<String> = mutableListOf()
         var pregunta: String = ""
         var respuestas : MutableList<Int> = mutableListOf()
+        var usuarios: MutableList<String> = mutableListOf()
 
         var id = intent.getStringExtra("pollId").toString()
+        pollType = intent.getStringExtra("pollType").toString()
+
         binding.textPollId.text = "#${id}"
         db.collection("poll").document(id)
             .get().addOnSuccessListener{
                 opciones = it.get("Opciones") as MutableList<String>
                 pregunta = it.get("Question") as String
                 respuestas = it.get("Respuestas") as MutableList<Int>
+                usuarios = it.get("Usuarios") as MutableList<String>
                 for (i in opciones)
                     pollOptions.add(PollOption(i,false))
                 crearRecyleView(pollOptions)
@@ -55,17 +60,18 @@ class Poll : AppCompatActivity() {
             for( i in pollOptions) {
                 if(i.isChecked)
                     respuestas.set(position,respuestas.get(position) +1)
-
                 position++
             }
 
           val documento = db.collection("poll").document(id)
+            usuarios.add(auth.currentUser?.uid.toString())
 
             documento.set(
                 hashMapOf(
                     "Opciones" to opciones,
                     "Question" to pregunta,
-                    "Respuestas" to respuestas
+                    "Respuestas" to respuestas,
+                    "Usuarios" to usuarios
                 )
             )
 
@@ -75,12 +81,14 @@ class Poll : AppCompatActivity() {
         }
     }
 
-
-
-
     fun crearRecyleView(options: MutableList<PollOption>) {
         val rv = binding.optionsPoll
-        rv.adapter = AdaptadorPoll(options)
+        Toast.makeText(this,pollType.toString(),Toast.LENGTH_SHORT).show()
+
+        if (pollType.equals("0"))
+            rv.adapter = AdaptadorPoll(options)
+        else
+            rv.adapter = AdapterPollSingleChoice(options)
         rv.layoutManager = LinearLayoutManager(this)
     }
 
