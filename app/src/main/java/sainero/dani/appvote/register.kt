@@ -19,20 +19,18 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import sainero.dani.appvote.databinding.ActivityLoginBinding
-import sainero.dani.appvote.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.storage.*
 import com.google.firebase.storage.ktx.storage
+import sainero.dani.appvote.databinding.ActivityRegisterBinding
 
 class register : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var  binding: ActivityRegisterBinding
-
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
-
     private lateinit var img: StorageReference
 
 
@@ -50,24 +48,18 @@ class register : AppCompatActivity() {
 
         img = storage.getReferenceFromUrl("gs://appvote-bdc78.appspot.com/imgUser/sainorum.png")
 
-
-       // asignarImg(img, binding.registerImg)
-
-
-
-
-
         binding.registerImg.setOnClickListener{
             var intent : Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.setType("image/")
             startActivityForResult(Intent.createChooser(intent,"Seleccione la Aplicación"),10)
-
         }
+
         binding.registerPolicies.setOnClickListener{
             this.startActivity(Intent(this, privacyPolicies::class.java))
         }
 
         binding.btnRegister.setOnClickListener{
+
 
             if(TextUtils.isEmpty(binding.registerName.text.toString())){
                 binding.registerName.setError("El nombre es obligatorio")
@@ -93,24 +85,24 @@ class register : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            createUser(
-                binding.registerMail.text.toString().trim(),
-                binding.registerPassword.text.toString().trim()
-            )
+            if (!binding.cBregisterPolicies.isChecked) {
+                Toast.makeText(this,"Debes aceptar las politicas de privacidad",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            createUser(binding.registerMail.text.toString().trim(), binding.registerPassword.text.toString().trim())
             }
     }
 
     private fun setInformationUser() {
-
-
-
         db.collection("users").document(auth.currentUser?.uid.toString())
             .set(
                 hashMapOf(
+                    //"password" to binding.registerPassword.text.toString(),
                     "name" to binding.registerName.text.toString(),
                     "email" to binding.registerMail.text.toString(),
-                    "password" to binding.registerPassword.text.toString(),
-                    "imgPath" to img.toString()
+                    "imgPath" to img.toString(),
+                    "ofertas" to binding.cbRegisterOferts.isChecked.toString()
                 )
             )
     }
@@ -124,9 +116,9 @@ class register : AppCompatActivity() {
 
             val uploadTask = riversRef.putFile(path!!)
             uploadTask.addOnFailureListener {
-                Toast.makeText(this,"No ha funcionado",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"No se ha podido subir la imágen",Toast.LENGTH_LONG).show()
             }.addOnSuccessListener { taskSnapshot ->
-                Toast.makeText(this,"Ha funcionado",Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"Ha funcionado",Toast.LENGTH_LONG).show()
                 asignarImg(img, binding.registerImg)
             }
         }
@@ -142,9 +134,6 @@ class register : AppCompatActivity() {
         }
 
     }
-    private fun randomID(): String = List(16) {
-        (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
-    }.joinToString("")
 
     private fun createUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
@@ -153,7 +142,7 @@ class register : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
 
-                    Toast.makeText(this,"El usuario ha sido creado",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Has sido registrado correctamente",Toast.LENGTH_LONG).show()
                     setInformationUser()
                     reload()
                 } else {
@@ -174,6 +163,5 @@ class register : AppCompatActivity() {
             reload();
         }
     }
-
 }
 

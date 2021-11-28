@@ -32,9 +32,9 @@ class NewPassword : AppCompatActivity() {
 
           auth.sendPasswordResetEmail(emailAddress)
                   .addOnCompleteListener { task ->
-                      if (task.isSuccessful) {
-                          Toast.makeText(baseContext, "El email ya ha sido enviado", Toast.LENGTH_SHORT).show()
-                      }
+                      if (task.isSuccessful)
+                          Toast.makeText(baseContext, "La contraseña ha sido cambiada", Toast.LENGTH_SHORT).show()
+
                   }
         }
     }

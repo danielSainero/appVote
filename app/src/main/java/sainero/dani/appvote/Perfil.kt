@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -27,7 +28,8 @@ class Perfil : AppCompatActivity() {
     private lateinit var  binding: ActivityPerfilBinding
     private  lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
-
+    private lateinit var img: String
+    private  lateinit var newImg: StorageReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,47 +39,52 @@ class Perfil : AppCompatActivity() {
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance()
         storage = Firebase.storage
-
         val user = auth.currentUser
-        val storageRef = storage.reference
+
 
 
         db.collection("users").document(auth.currentUser?.uid.toString())
             .get().addOnSuccessListener{
                 binding.perfilNombre.setText(it.get("name") as String?)
                 binding.prefilCorreo.setText(it.get("email") as String?)
+                img = storage.getReferenceFromUrl(it.get("imgPath").toString()).toString()
                 asignarImg(storage.getReferenceFromUrl(it.get("imgPath").toString()),binding.perfilImg)
-
             }
 
+        binding.perfilImg.setOnClickListener{
+            var intent : Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            intent.setType("image/")
+            startActivityForResult(Intent.createChooser(intent,"Seleccione la Aplicación"),10)
+        }
         binding.btnPerfilModificarContra.setOnClickListener {
             this.startActivity(Intent(this, NewPassword::class.java))
         }
 
         binding.btnPerfilActualizarDatos.setOnClickListener{
-            val profileUpdates = userProfileChangeRequest {
-                displayName = binding.perfilNombre.text.toString()
-                photoUri = Uri.parse("https://example.com/jane-q-user/profile.jpg")
-            }
-
-            user!!.updateEmail(binding.prefilCorreo.text.toString())
-                .addOnCompleteListener { task ->
+            user!!.sendEmailVerification()
+                .addOnCompleteListener{ task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(baseContext, "Se ha actualizado el correo.", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-            user!!.updateProfile(profileUpdates)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(baseContext, "Se ha actualizado el usuario.", Toast.LENGTH_SHORT).show()
-
-                    }
+                        setInformationUser()
+                        user!!.updateEmail(binding.prefilCorreo.text.toString().trim())
+                            .addOnCompleteListener{ task ->
+                                if (task.isSuccessful) Toast.makeText(baseContext, "Los datos se han actualizado correctamente", Toast.LENGTH_SHORT).show()
+                            }
+                    } else Toast.makeText(baseContext, "No se puede validar la cuenta de usuario", Toast.LENGTH_SHORT).show()
                 }
         }
-
-
     }
+    private fun setInformationUser() {
+        db.collection("users").document(auth.currentUser?.uid.toString())
+            .set(
+                hashMapOf(
+                    "name" to binding.perfilNombre.text.toString(),
+                    "email" to binding.prefilCorreo.text.toString(),
+                    "imgPath" to img,
+                    "ofertas" to binding.cbOfertas.isChecked.toString()
+                )
+            )
+    }
+
     private fun asignarImg(url: StorageReference, idImagen: ImageView) {
         url.downloadUrl.addOnSuccessListener{
             Glide.with(this)
@@ -86,6 +93,24 @@ class Perfil : AppCompatActivity() {
                 .centerCrop()
                 .into(idImagen)
         }
+    }
 
+    protected override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK) {
+            val path: Uri? = data?.data
+            var storageRef = storage.reference
+            val riversRef = storageRef.child("imgUser/${path?.lastPathSegment}")
+            newImg = storage.getReferenceFromUrl(storageRef.child("imgUser/${path?.lastPathSegment}").toString())
+
+            val uploadTask = riversRef.putFile(path!!)
+            uploadTask.addOnFailureListener {
+                Toast.makeText(this,"No ha funcionado",Toast.LENGTH_LONG).show()
+            }.addOnSuccessListener { taskSnapshot ->
+                Toast.makeText(this,"Ha funcionado",Toast.LENGTH_LONG).show()
+                img = newImg.toString()
+                asignarImg(newImg, binding.perfilImg)
+            }
+        }
     }
 }

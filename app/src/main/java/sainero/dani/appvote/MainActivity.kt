@@ -12,7 +12,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
-import sainero.dani.appvote.databinding.ActivityLoginBinding
 import sainero.dani.appvote.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,24 +29,36 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         storage = Firebase.storage
 
+        db.collection("users").document(auth.currentUser?.uid.toString())
+            .get().addOnSuccessListener{
+                asignarImg(storage.getReferenceFromUrl(it.get("imgPath").toString()),binding.imgPerfil)
+            }
 
         binding.mainCrearVoto.setOnClickListener{
             this.startActivity(Intent(this,NewPoll::class.java))
         }
         binding.mainSalir.setOnClickListener{
+            val intent = Intent(applicationContext, login::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             auth.signOut()
-            this.startActivity(
-                Intent(this,login::class.java)
-            )
+            startActivity(intent)
+        }
+
+        binding.mainUnirseVoto.setOnClickListener{
+            this.startActivity(Intent(this,joinAPoll::class.java))
+        }
+
+        binding.mainResultadoEncuesta.setOnClickListener{
+            var intent: Intent = Intent(this,joinAPoll::class.java)
+            intent.putExtra("accion","ver")
+            this.startActivity(intent)
         }
 
         binding.imgPerfil.setOnClickListener{
             this.startActivity(Intent(this,Perfil::class.java))
         }
-        db.collection("users").document(auth.currentUser?.uid.toString())
-            .get().addOnSuccessListener{
-                asignarImg(storage.getReferenceFromUrl(it.get("imgPath").toString()),binding.imgPerfil)
-            }
+
+
     }
     private fun asignarImg(url: StorageReference, idImagen: ImageView) {
         url.downloadUrl.addOnSuccessListener {

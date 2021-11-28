@@ -1,11 +1,65 @@
 <resources>
-    <string name="app_name">appVote</string>
-    <string name="loginEmail">correo@gmail.com</string>
-    <string name="loginPassword">Contraseña</string>
+    <!--Need for app -->
+    <string name="app_name">appVote-Sainorum</string>
+
+
     <string name="loginEnviar">Iniciar Sesión</string>
     <string name="title_activity_privacy_policies">privacyPolicies</string>
     <string name="action_settings">Settings</string>
     <string name="large_text">Texto largo</string>
+
+
+    <!--Login-->
+    <string name="loginInfo">Necesita iniciar sesión en nuestra app para poder crear una votación</string>
+    <string name="loginInfoRegister">Introduce su correo y contraseña para iniciar sesión</string>
+    <string name="forgotPassword">¿Has olvidado la contraseña?</string>
+    <string name="loginNewCount">Crear nueva cuenta</string>
+
+    <!--New password-->
+    <string name="enterYourEmail">Introduce su email</string>
+    <string name="sendValidateEmail">Enviar correo de validación</string>
+
+    <!--Register-->
+    <string name="acceptPrivacyPolicies">Acepto las Políticas de Privacidad</string>
+    <string name="privacyPolicies">Políticas de privacidad</string>
+    <string name="acceptSendOferts">Deseo recibir información de ofertas y novedades</string>
+
+    <!--Main-->
+    <string name="newPoll">Crear votación</string>
+    <string name="joinPoll">Unirse a una votación</string>
+    <string name="joinResultPoll">Ver resultado de la encuesta</string>
+
+    <!--Profile-->
+    <string name="updatePassword">Modificar contraseña</string>
+    <string name="saveChanges">Guardar cambios</string>
+
+    <!--Join a poll-->
+    <string name="enterPollId">Introduce la id de la votación</string>
+    <string name="joinRandomPoll">Unirse a una votación Aleatoria</string>
+    <string name="joinResultRandomPoll">Ver una encuesta aleatoria</string>
+
+    <!--New Poll-->
+    <string name="typePoll">Tipo de encuesta:</string>
+    <string name="writeQuestion">Escriba su pregunta</string>
+    <string name="enterYourOption">Introduzca su opción</string>
+    <string name="addOptionPoll">Añadir opción a la votación</string>
+    <string name="option">Opciones:</string>
+
+    <!--Standar tags-->
+    <string name="bigGoogle">GOOGLE</string>
+    <string name="logIn">iniciar sesión</string>
+    <string name="register">Register</string>
+    <string name="checkIn">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="loginEmail">correo@gmail.com</string>
+    <string name="loginPassword">Contraseña</string>
+    <string name="repeatPassword">Repetir Contraseña</string>
+    <string name="leave">Salir</string>
+
+    <!--Poll result-->
+    <string name="idOfPoll">id de la encuesta:</string>
+    <string name="sendResult">Enviar Resultados</string>
+    <string name="goToMain">Volver al incio</string>
 
     <!--Politicas de privacidad-->
     <string name="privacyPoliciesTitle">Políticas de privacidad\n</string>
@@ -14,7 +68,7 @@
         regulación aplicable con respecto a cualquier información persona que podamos recopilar sobre usted.
     </string>
     <string name="privacyPoliciesText2">Esta política es efectiva a partir del 1 de noviembre de 2021 y se actualizó por última vez el 1 de noviembre de 2021</string>
-    <string name="logDataTitle">Registro de datos\n</string>
+    <string name="logDataTitle">"Registro de datos "</string>
     <string name="logDataText1">
         Cuando visita nuestro sitio web, nuestros servidores pueden registrar automáticamente los datos estándar proporcionados
         por su navegador web. Puede incluir la dirección de Protocolo de Internet (IP) de su dispositivo, el tipo y la versión de su navegador, las
@@ -25,7 +79,7 @@
         Tenga en cuenta que, si bien es posible que esta información no sea de identificación personal por sí misma,
         es posible combinarla conotros datos para identificarpersonalmente a personas individuales.
     </string>
-    <string name="userInformationTitle">Colección y uso de información\n</string>
+    <string name="userInformationTitle">"Colección y uso de información "</string>
     <string name="userInformationText1">Podemos recopilar información personal de usted cuando realiza cualquiera de las siguientes acciones en nuestro sitio web:</string>
     <string name="userInformationText2">Utilice un dispositivo móvil o un navegador web para acceder a nuestro contenido.\nContáctenos por correo electrónico, redes sociales o cualquier tecnología similar.\nCuando nos mencionas en las redes sociale.</string>
     <string name="userInformationText3">Podemos recopilar, retener, usar y divulgar información para los siguientes propósitos, y la información personal no se procesará más de una manera que sea incompatible con estos propósitos:</string>
@@ -56,4 +110,11 @@
     <string name="contactUsText1">Para cualquier pregunta o inquietud con respecto a su privacidad, puede comunicarse con nosotros utilizando los siguientes detalles:</string>
     <string name="contactUsName">Daniel</string>
     <string name="contactUsCorreo">sainero2002dani.j@gmail.com</string>
+    <string-array name="textPollType">
+        <item>Multi elección</item>
+        <item>Elección única</item>
+        <item>Resultado aleatorio</item>
+    </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
+
 </resources>
