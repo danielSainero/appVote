@@ -63,4 +63,9 @@ class PollResult : AppCompatActivity() {
         rv.adapter = AdaptadorPollResult(results)
         rv.layoutManager = LinearLayoutManager(this)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.startActivity(Intent(this,MainActivity::class.java))
+    }
 }

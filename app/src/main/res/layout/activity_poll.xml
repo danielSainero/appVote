@@ -27,7 +27,6 @@
         android:layout_width="413dp"
         android:layout_height="464dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/big_sainorum"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +40,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:text="Enviar Resultados"
+        android:text="@string/sendResult"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,7 +54,7 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="18dp"
-        android:text="Id de la encuesta:"
+        android:text="@string/idOfPoll"
         app:layout_constraintBottom_toTopOf="@+id/optionsPoll"
         app:layout_constraintEnd_toStartOf="@+id/textPollId"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,13 +67,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="185dp"
         android:layout_marginBottom="18dp"
 
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/optionsPoll"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btnCopy"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/questionPoll" />
+
+    <ImageButton
+        android:id="@+id/btnCopy"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/icon_copy"
+        app:layout_constraintBottom_toTopOf="@+id/optionsPoll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textPollId"
+        app:layout_constraintTop_toBottomOf="@+id/questionPoll"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

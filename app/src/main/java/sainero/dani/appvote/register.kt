@@ -52,8 +52,8 @@ class register : AppCompatActivity() {
             var intent : Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.setType("image/")
             startActivityForResult(Intent.createChooser(intent,"Seleccione la Aplicación"),10)
-
         }
+
         binding.registerPolicies.setOnClickListener{
             this.startActivity(Intent(this, privacyPolicies::class.java))
         }
@@ -116,9 +116,9 @@ class register : AppCompatActivity() {
 
             val uploadTask = riversRef.putFile(path!!)
             uploadTask.addOnFailureListener {
-                Toast.makeText(this,"No ha funcionado",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"No se ha podido subir la imágen",Toast.LENGTH_LONG).show()
             }.addOnSuccessListener { taskSnapshot ->
-                Toast.makeText(this,"Ha funcionado",Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"Ha funcionado",Toast.LENGTH_LONG).show()
                 asignarImg(img, binding.registerImg)
             }
         }
@@ -163,6 +163,5 @@ class register : AppCompatActivity() {
             reload();
         }
     }
-
 }
 

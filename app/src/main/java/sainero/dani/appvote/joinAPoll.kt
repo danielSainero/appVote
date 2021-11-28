@@ -47,8 +47,8 @@ class joinAPoll : AppCompatActivity() {
         initialiceArrays()
 
         if (intent.getStringExtra("accion").equals("ver")) {
-            binding.btnJoinAPoll.text = "Ver resultado de la encuesta"
-            binding.btnJoinRandomPoll.text = "Ver una encuesta aleatoria"
+            binding.btnJoinAPoll.text = getString(R.string.joinResultPoll)
+            binding.btnJoinRandomPoll.text = getString(R.string.joinResultRandomPoll)
             binding.btnJoinAPoll.setOnClickListener{
 
                 if (binding.joinId.text.toString().equals("") || binding.joinId.text.isEmpty()){
@@ -78,7 +78,8 @@ class joinAPoll : AppCompatActivity() {
                     binding.joinId.setError("Debes de rellenar el campo obligatoriamente")
                     return@setOnClickListener
                 }
-                if(availablePolls.any{it.equals(binding.joinId.text.toString())}) {
+
+                if(availablePolls.any{it.id.equals(binding.joinId.text.toString())}) {
                     showViewPoll(binding.joinId.text.toString().trim())
                     return@setOnClickListener
                 }
@@ -126,6 +127,7 @@ class joinAPoll : AppCompatActivity() {
     private fun showViewPoll(idPoll: String) {
         var intent: Intent = Intent(this,Poll::class.java)
         intent.putExtra("pollId", idPoll)
+        intent.putExtra("new","notNew")
         this.startActivity(intent)
     }
 

@@ -4,15 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.RadioButton
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterPollSingleChoice(val rowOptionsPoll: MutableList<PollOption>) : RecyclerView.Adapter<AdapterPollSingleChoice.ViewHolder>() {
 
+    var allImgArray: MutableList<ImageView> = mutableListOf()
+
     class ViewHolder(v: View): RecyclerView.ViewHolder(v) {
-        val option: RadioButton
+        val textOption: TextView
+        val imageOptionTick : ImageView
         init {
-            option = v.findViewById(R.id.rbOptionPoll)
+            textOption = v.findViewById(R.id.optionName)
+            imageOptionTick = v.findViewById(R.id.imageOption)
         }
     }
 
@@ -27,9 +33,20 @@ class AdapterPollSingleChoice(val rowOptionsPoll: MutableList<PollOption>) : Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = rowOptionsPoll[position]
-        holder.option.text = p.texto
-        holder.option.setOnCheckedChangeListener{ i, b ->
-            p.isChecked = holder.option.isChecked
+        allImgArray.add(holder.imageOptionTick)
+
+        holder.textOption.text = p.texto
+        holder.imageOptionTick.visibility = View.GONE
+        holder.textOption.setOnClickListener{
+            for (i in rowOptionsPoll) {
+                i.isChecked = false
+            }
+            for (i in allImgArray) {
+                i.visibility = View.GONE
+            }
+            holder.imageOptionTick.visibility = View.VISIBLE
+            p.isChecked = true
+
         }
     }
 

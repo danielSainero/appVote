@@ -16,6 +16,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import sainero.dani.appvote.databinding.ActivityLoginBinding
 import kotlin.math.log
@@ -23,6 +24,7 @@ import kotlin.math.log
 class login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var  binding: ActivityLoginBinding
+    private lateinit var db: FirebaseFirestore
 
     private val RC_SIGN_IN = 100
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,7 @@ class login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        db = FirebaseFirestore.getInstance()
 
         binding.loginTextRegister.setOnClickListener{
             this.startActivity(Intent(this,register::class.java))
@@ -88,12 +91,10 @@ class login : AppCompatActivity() {
             try {
 
                 val account = task.getResult(ApiException::class.java)
-                Toast.makeText(baseContext, "LLega hasta aquí", Toast.LENGTH_SHORT).show()
 
                 if (account != null)
                     firebaseAuthWithGoogle(account.idToken)
             } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
@@ -109,13 +110,12 @@ class login : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
+                    allUsers()
+
                     reload()
 
-                   // updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    //updateUI(null)
                 }
             }
     }
@@ -124,12 +124,10 @@ class login : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d("Inicio de sesión", "Se ha iniciado la sesión")
                     val user = auth.currentUser
                     reload()
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w("Inicio de sesión", "No se ha podido iniciar la sesión", task.exception)
                     Toast.makeText(baseContext, "El usuario o contraseña no son válidos.", Toast.LENGTH_LONG).show()
                 }
@@ -138,22 +136,41 @@ class login : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val user = auth.currentUser
         if(user != null){
-           /* user?.let {
-                val name = user.displayName
-                val email = user.email
-                val photoUrl = user.photoUrl
-                val emailVerified = user.isEmailVerified
-                val uid = user.uid
-            }*/
-
             reload();
         }
     }
-
+    private fun setInformationUser() {
+        db.collection("users").document(auth.currentUser?.uid.toString())
+            .set(
+                hashMapOf(
+                    //"password" to binding.registerPassword.text.toString(),
+                    "name" to "",
+                    "email" to auth.currentUser?.email.toString(),
+                    "imgPath" to "gs://appvote-bdc78.appspot.com/imgUser/sainorum.png",
+                    "ofertas" to "true"
+                )
+            )
+    }
     private fun reload() {
         this.startActivity(Intent(this, MainActivity::class.java))
+    }
+
+
+    private fun allUsers() {
+        var tmp: Boolean = false
+
+        db.collection("users").get().addOnSuccessListener {
+
+            for (document in it) {
+
+                if(document.id.equals(auth.currentUser?.uid))
+                    tmp = true
+            }
+            if(!tmp)
+                setInformationUser()
+
+        }
     }
 }

@@ -26,12 +26,12 @@
         android:id="@+id/pollResultView"
         android:layout_width="410dp"
         android:layout_height="463dp"
-        android:background="@drawable/big_sainorum"
+
         app:layout_constraintBottom_toTopOf="@+id/pollResultMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResultPollId" />
+        app:layout_constraintTop_toBottomOf="@+id/textResultPollId"/>
 
     <Button
         android:id="@+id/pollResultMain"
@@ -40,7 +40,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        android:text="Volver al incio"
+        android:text="@string/goToMain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,10 +51,10 @@
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="175dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
-        android:text="id de la encuesta:"
+        android:text="@string/idOfPoll"
         app:layout_constraintBottom_toTopOf="@+id/pollResultView"
         app:layout_constraintEnd_toStartOf="@+id/textResultPollId"
         app:layout_constraintStart_toStartOf="parent"

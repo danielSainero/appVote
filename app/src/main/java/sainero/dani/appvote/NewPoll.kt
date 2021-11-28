@@ -23,6 +23,8 @@ import android.graphics.Color
 import android.graphics.Color.*
 import android.util.Log
 import android.view.ViewParent
+import com.bumptech.glide.request.RequestOptions.option
+import java.util.*
 
 
 class NewPoll : AppCompatActivity() {
@@ -121,6 +123,7 @@ class NewPoll : AppCompatActivity() {
             var intent: Intent = Intent(this,Poll::class.java)
             intent.putExtra("pollId", id)
             intent.putExtra("pollType", valueOfPollType.toString())
+            intent.putExtra("new","new")
             this.startActivity(intent)
 
         }
