@@ -1,5 +1,8 @@
 package sainero.dani.appvote
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,6 +40,13 @@ class PollResult : AppCompatActivity() {
 
         binding.textResultPollId.text = id
 
+        binding.btnResultCopy.setOnClickListener{
+            val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Id de la encuesta",binding.textResultPollId.text)
+            clipBoard.setPrimaryClip(clip)
+            Toast.makeText(this,"El elemento ha sido copiado",Toast.LENGTH_SHORT).show()
+        }
+
         db.collection("poll").document(id)
             .get().addOnSuccessListener{
                 opciones = it.get("Opciones") as MutableList<String>
@@ -63,6 +73,7 @@ class PollResult : AppCompatActivity() {
         rv.adapter = AdaptadorPollResult(results)
         rv.layoutManager = LinearLayoutManager(this)
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()
